@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- AIUML Logo: Database + Code Concept -->
+
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="#f8fafc" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Database Symbol (Left) -->
+  <g transform="translate(50, 70)">
+    <!-- Database cylinder -->
+    <ellipse cx="25" cy="10" rx="20" ry="8" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <path d="M 5 10 L 5 40 Q 5 48 25 48 Q 45 48 45 40 L 45 10" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <ellipse cx="25" cy="40" rx="20" ry="8" fill="none" stroke="#2563eb" stroke-width="3"/>
+
+    <!-- Query lines -->
+    <line x1="10" y1="20" x2="20" y2="20" stroke="#2563eb" stroke-width="2"/>
+    <line x1="10" y1="28" x2="30" y2="28" stroke="#2563eb" stroke-width="2"/>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 85 100 L 105 100 M 100 95 L 105 100 L 100 105" stroke="#2563eb" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Code Brackets (Right) -->
+  <g transform="translate(125, 70)">
+    <!-- Left brace -->
+    <path d="M 15 5 Q 5 5 5 15 L 5 25 Q 5 30 0 30 Q 5 30 5 35 L 5 45 Q 5 55 15 55"
+          fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+    <!-- Right brace -->
+    <path d="M 35 5 Q 45 5 45 15 L 45 25 Q 45 30 50 30 Q 45 30 45 35 L 45 45 Q 45 55 35 55"
+          fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text -->
+  <text x="100" y="160" font-family="Inter, -apple-system, sans-serif" font-size="28" font-weight="600" text-anchor="middle" fill="#2563eb">AIUML</text>
+</svg>

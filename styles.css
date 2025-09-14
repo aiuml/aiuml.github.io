@@ -5,6 +5,15 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 :root {
     /* Colors */
     --primary-color: #2563eb;
@@ -37,6 +46,8 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     background: var(--white);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -395,6 +406,8 @@ pre {
     border-radius: 8px;
     overflow-x: auto;
     margin: 1rem 0;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 code {
@@ -719,13 +732,16 @@ code {
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar .container {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
+        flex-wrap: wrap;
     }
 
     .nav-menu {
         gap: 1rem;
         font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .hero {
@@ -791,9 +807,22 @@ code {
     pre {
         padding: 1rem;
         font-size: 0.8rem;
+        overflow-x: auto;
     }
 
     .nav-menu {
-        flex-direction: column;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .nav-brand {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
     }
 }
