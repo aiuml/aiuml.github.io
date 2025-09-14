@@ -1,0 +1,18 @@
+# Jekyll configuration for GitHub Pages
+title: AIUML - Architectural Context for AI-Assisted Development
+description: An experimental open-source tool that provides LLMs with structured architectural knowledge of codebases
+url: https://aiuml.org
+baseurl: ""
+
+# GitHub Pages settings
+github:
+  repository: aiuml/aiuml.github.io
+
+# Optional: Google Analytics (add your tracking ID if you want analytics)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
