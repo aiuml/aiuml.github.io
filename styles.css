@@ -211,97 +211,49 @@ a:hover {
     color: var(--text-secondary);
 }
 
-/* Social Share Section */
-.social-share {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+/* Footer Social Share Section */
+.footer-share {
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
-.share-text {
-    font-size: 1.125rem;
-    color: var(--text-primary);
+.footer-share-text {
+    color: var(--text-light);
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-size: 0.95rem;
 }
 
-.share-buttons {
+.footer-share-buttons {
     display: flex;
-    gap: 0.75rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.share-btn {
+.footer-share-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-weight: 500;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
     transition: all 0.2s;
     text-decoration: none;
-    font-size: 0.95rem;
 }
 
-.share-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-.share-twitter {
-    background: #1DA1F2;
-    color: white;
-}
-
-.share-twitter:hover {
-    background: #1a8cd8;
+.footer-share-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
 }
 
-.share-linkedin {
-    background: #0077B5;
-    color: white;
-}
-
-.share-linkedin:hover {
-    background: #006097;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
-}
-
-.share-hn {
-    background: #FF6600;
-    color: white;
-}
-
-.share-hn:hover {
-    background: #e55a00;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
-}
-
-.share-reddit {
-    background: #FF4500;
-    color: white;
-}
-
-.share-reddit:hover {
-    background: #e63e00;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
-}
-
-.share-github {
-    background: var(--dark-bg);
-    color: white;
-}
-
-.share-github:hover {
-    background: #1a1f33;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+.footer-share-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }
 
 /* Sections */
@@ -820,15 +772,6 @@ code {
     .contribute-buttons .btn {
         width: 100%;
         max-width: 250px;
-    }
-
-    .share-buttons {
-        gap: 0.5rem;
-    }
-
-    .share-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.875rem;
     }
 }
 
