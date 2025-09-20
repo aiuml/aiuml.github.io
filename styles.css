@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+/* Wrap long code lines */
+pre.wrap-code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 html {
     /* Remove overflow-x hidden to allow pinch zoom */
     width: 100%;

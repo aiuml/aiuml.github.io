@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>AIUML - Architectural Context for AI-Assisted Development</title>
-    <meta name="description" content="An experimental open-source tool that provides LLMs with structured architectural knowledge of codebases. May help improve AI-assisted development efficiency.">
-    <meta name="keywords" content="AI-assisted development, code architecture, LLM tools, code context, experimental, open source">
+    <title>AIUML - Architecture for AI-Assisted Development</title>
+    <meta name="description" content="AIUML is a compressed notation for representing software architecture, optimized for LLM understanding. AIUML Developer is our experimental implementation providing code intelligence tools.">
+    <meta name="keywords" content="AIUML notation, code architecture, LLM tools, AI development, code intelligence, experimental">
 
     <!-- Open Graph Meta Tags for rich social media previews -->
-    <meta property="og:title" content="AIUML - Query Your Codebase Like a Database for AI">
-    <meta property="og:description" content="🚀 Extract your codebase architecture into SQL-queryable format. Help LLMs understand your code 10x better. Open source & free forever.">
+    <meta property="og:title" content="AIUML - Architecture Intelligence for AI Development">
+    <meta property="og:description" content="A notation standard for software architecture + experimental tools that help LLMs understand your code. Navigate, query, and explore codebases with AI-first design.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aiuml.org">
     <meta property="og:image" content="https://aiuml.org/og-image.png">
@@ -17,12 +17,13 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIUML - Query Your Codebase Like a Database">
-    <meta name="twitter:description" content="🚀 Extract your codebase architecture into SQL-queryable format. Help LLMs understand your code 10x better. Open source & free.">
+    <meta name="twitter:title" content="AIUML - Architecture Intelligence for AI">
+    <meta name="twitter:description" content="Notation standard + experimental tools for AI-powered code understanding. Navigate codebases, query with SQL, extract architecture.">
     <meta name="twitter:image" content="https://aiuml.org/twitter-card.png">
     <meta name="twitter:creator" content="@aiuml">
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-terminal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -37,16 +38,17 @@
         gtag('config', 'G-XL4R4SR5GG');
     </script>
 </head>
-<body>
+<body class="theme-terminal">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">AIUML</div>
             <ul class="nav-menu">
-                <li><a href="#concept">Concept</a></li>
+                <li><a href="#notation">Notation</a></li>
+                <li><a href="#developer">Developer</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#getting-started">Get Started</a></li>
-                <li><a href="https://github.com/aiuml/aiuml" class="btn-github">GitHub</a></li>
+                <li><a href="https://github.com/aiuml" class="btn-github">GitHub</a></li>
             </ul>
         </div>
     </nav>
@@ -54,328 +56,296 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Architectural Context for AI-Assisted Development</h1>
-            <p class="subtitle">An experimental tool exploring whether structured architectural knowledge might help LLMs understand codebases more effectively</p>
+            <h1 id="typewriter-header" data-text="Architecture for AI-Assisted Development">Architecture for AI-Assisted Development</h1>
+            <noscript>
+                <style>
+                    #typewriter-header::after { display: none !important; }
+                </style>
+            </noscript>
+            <p class="subtitle">A notation standard for software architecture + experimental tools that help LLMs understand your code better</p>
             <div class="hero-buttons">
-                <a href="https://github.com/aiuml/aiuml" class="btn btn-primary">Try AIUML</a>
+                <a href="https://github.com/aiuml/developer" class="btn btn-primary">Try AIUML Developer</a>
                 <a href="#getting-started" class="btn btn-secondary">Learn More</a>
             </div>
             <div class="status-badge">
-                <span class="badge">Alpha Preview</span>
-                <span class="badge">v0.1.0-alpha</span>
+                <span class="badge">Experimental</span>
+                <span class="badge">v0.1.0b-alpha</span>
                 <span class="badge">MIT License</span>
             </div>
         </div>
     </section>
 
-    <!-- Introduction -->
+    <!-- Two Components Section -->
     <section class="section intro">
         <div class="container">
             <div class="section-header">
-                <h2>What is AIUML?</h2>
-                <p>AIUML (AI-Optimized UML) is an open-source experiment in improving AI-assisted development. Instead of having LLMs explore your code file-by-file, AIUML provides a pre-computed architectural "map" that may help them understand your system's structure and relationships.</p>
+                <h2>Two Components, One Vision</h2>
+                <p>AIUML consists of two distinct but complementary parts: a notation standard and an implementation</p>
             </div>
-            <div class="warning-box">
-                <strong>Status: Experimental Software</strong> - This is a preview release exploring new approaches. Results vary based on codebase complexity and LLM capabilities.
-            </div>
-        </div>
-    </section>
 
-    <!-- Concept Section -->
-    <section id="concept" class="section concept">
-        <div class="container">
-            <h2>The Concept</h2>
-            <div class="concept-grid">
-                <div class="concept-card">
-                    <h3>The Observation</h3>
-                    <p>When working with unfamiliar code, LLMs typically:</p>
+            <div class="components-grid">
+                <div class="component-card notation">
+                    <h3>📋 AIUML Notation</h3>
+                    <p class="component-subtitle">The Standard</p>
+                    <p>A compressed, text-based format for representing UML class diagrams and code architecture</p>
                     <ul>
-                        <li>Read files sequentially to understand the system</li>
-                        <li>May revisit the same relationships repeatedly</li>
-                        <li>Sometimes miss important architectural patterns</li>
-                        <li>Use significant context exploring rather than solving</li>
+                        <li>Language-agnostic notation specification</li>
+                        <li>Optimized for LLM parsing and generation</li>
+                        <li>Supports OOP and procedural paradigms</li>
+                        <li>Extensible with custom modifiers</li>
                     </ul>
-                </div>
-                <div class="concept-card">
-                    <h3>Our Approach</h3>
-                    <p>AIUML attempts to provide LLMs with:</p>
-                    <ul>
-                        <li>Pre-extracted class hierarchies and relationships</li>
-                        <li>Method signatures and visibility information</li>
-                        <li>Module organization and dependencies</li>
-                        <li>A structured format designed for text-based consumption</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="potential-benefits">
-                <h3>Potential Benefits</h3>
-                <p>Based on early testing, AIUML <em>may</em> help with:</p>
-                <div class="benefits-grid">
-                    <div class="benefit-item">Reducing time spent discovering code relationships</div>
-                    <div class="benefit-item">Maintaining architectural consistency in suggestions</div>
-                    <div class="benefit-item">Identifying potential impacts across components</div>
-                    <div class="benefit-item">Improving context efficiency (token reduction is a side effect)</div>
-                </div>
-                <p class="disclaimer">Note: Results vary significantly based on codebase complexity and LLM capabilities</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="section how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Extract</h3>
-                    <pre><code>aiuml extract /your/project --preset architecture</code></pre>
-                    <p>Analyzes your codebase and extracts architectural information</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Provide Context</h3>
-                    <p>Share the extracted model with your LLM at conversation start</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Work with Awareness</h3>
-                    <p>The LLM now has architectural context that may improve its suggestions</p>
-                </div>
-            </div>
-            <div class="example-output">
-                <h3>Example Output</h3>
-                <div class="output-comparison">
-                    <div class="output-example">
-                        <h4>Standard Format</h4>
-                        <pre><code>UserService < BaseService {
-  +authenticate(username: str, password: str): User
-  -validate_credentials(): bool
-  => UserRepository [uses]
-  => CacheService [depends on]
+                    <div class="example-box">
+                        <pre><code>User&lt;Person&lt;&lt;i&gt;&gt;Serializable{
+  -email:s
+  +authenticate(password:s):b
+  ~+sendWelcomeEmail():*
 }</code></pre>
                     </div>
-                    <div class="output-example">
-                        <h4>Compressed Format (High)</h4>
-                        <pre><code>UserService<BaseService{+authenticate(username:s,password:s):User -validate_credentials():b =>UserRepository[uses]=>CacheService[depends on]}</code></pre>
+                </div>
+
+                <div class="component-card implementation">
+                    <h3>🛠️ AIUML Developer</h3>
+                    <p class="component-subtitle">The Implementation</p>
+                    <p>An experimental code intelligence system that generates and uses AIUML notation</p>
+                    <ul>
+                        <li>Extract architecture from codebases</li>
+                        <li>Navigate code with intelligent commands</li>
+                        <li>Query your project like a database</li>
+                        <li>Progressive caching and analysis</li>
+                    </ul>
+                    <div class="example-box">
+                        <pre><code>&gt; aiuml nav @ProjectContext
+&gt; aiuml goto UserService.authenticate
+&gt; aiuml query "SELECT * FROM methods WHERE is_async = 1"</code></pre>
                     </div>
                 </div>
-                <p>Compression reduces tokens while preserving all architectural information. Common types are abbreviated (s=string, b=boolean, i=integer).</p>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- AIUML Notation Section -->
+    <section id="notation" class="section notation">
+        <div class="container">
+            <h2>The AIUML Notation</h2>
+            <p class="section-intro">A universal language for software architecture that bridges human understanding and AI processing</p>
+
+            <div class="notation-features">
+                <div class="notation-card">
+                    <h3>Type System</h3>
+                    <p>Abbreviated types for efficiency:</p>
+                    <ul class="type-list">
+                        <li><code>s</code> = string</li>
+                        <li><code>i</code> = int</li>
+                        <li><code>f</code> = float</li>
+                        <li><code>b</code> = bool</li>
+                        <li><code>L[T]</code> = List</li>
+                        <li><code>D[K,V]</code> = Dict</li>
+                        <li><code>O[T]</code> = Optional</li>
+                    </ul>
+                </div>
+
+                <div class="notation-card">
+                    <h3>Modifiers</h3>
+                    <p>Rich semantics with single characters:</p>
+                    <ul class="modifier-list">
+                        <li><code>+</code> public</li>
+                        <li><code>-</code> private</li>
+                        <li><code>#</code> protected</li>
+                        <li><code>%</code> static</li>
+                        <li><code>~</code> async</li>
+                        <li><code>&amp;</code> abstract</li>
+                        <li><code>@</code> property</li>
+                    </ul>
+                </div>
+
+                <div class="notation-card">
+                    <h3>Relationships</h3>
+                    <p>Express complex architectures:</p>
+                    <ul>
+                        <li><code>&lt;</code> Inheritance</li>
+                        <li><code>&lt;&lt;i&gt;&gt;</code> Interface</li>
+                        <li><code>&lt;&lt;a&gt;&gt;</code> Abstract</li>
+                        <li><code>-&gt;</code> Association</li>
+                        <li><code>o--</code> Aggregation</li>
+                        <li><code>*--</code> Composition</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notation-example">
+                <h3>Complete Example</h3>
+                <div class="example-tabs">
+                    <div class="example-version">
+                        <h4>Readable Format</h4>
+                        <pre><code>aiuml::class v0.1.0b
+
+// Service with inheritance and interface implementation
+UserService&lt;BaseService&lt;&lt;i&gt;&gt;Cacheable,&lt;&lt;i&gt;&gt;Auditable{
+  -repository:UserRepository
+  -cache:CacheService
+
+  +UserService(repo:UserRepository,cache:CacheService)
+  +authenticate(username:s,password:s):O[User]
+  ~+fetchUserAsync(id:i):User  // Async method
+  %+validateEmail(email:s):b    // Static method
+  &amp;+processRequest():*         // Abstract method
+}
+
+// Interface definition
+&lt;&lt;i&gt;&gt;Cacheable{
+  +cacheKey():s
+  +cacheTtl():i
+}
+
+// Standalone function for procedural code
+#hashPassword(password:s,salt:s):s</code></pre>
+                    </div>
+                    <div class="example-version">
+                        <h4>High Compression Format (Same Content)</h4>
+                        <pre class="wrap-code"><code>aiuml::class v0.1.0b
+UserService&lt;BaseService&lt;&lt;i&gt;&gt;Cacheable,&lt;&lt;i&gt;&gt;Auditable{-repository:UserRepository-cache:CacheService+UserService(repo:UserRepository,cache:CacheService)+authenticate(username:s,password:s):O[User]~+fetchUserAsync(id:i):User%+validateEmail(email:s):b&amp;+processRequest():*}&lt;&lt;i&gt;&gt;Cacheable{+cacheKey():s+cacheTtl():i}#hashPassword(password:s,salt:s):s</code></pre>
+                        <p class="compression-note">High compression removes whitespace and comments while preserving all architectural information. Context-efficient format that's easier for AI assistants to parse due to its consistent, delimiter-based structure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AIUML Developer Section -->
+    <section id="developer" class="section developer">
+        <div class="container">
+            <h2>AIUML Developer: Code Intelligence System</h2>
+            <p class="section-intro">Our experimental implementation that brings the AIUML notation to life</p>
+
+            <div class="developer-features">
+                <h3>🎯 Current Capabilities</h3>
+
+                <div class="capability-grid">
+                    <div class="capability-card">
+                        <h4>Smart Navigation</h4>
+                        <p>Navigate your codebase with intelligence:</p>
+                        <ul>
+                            <li>Jump directly to any class or method</li>
+                            <li>Follow inheritance chains</li>
+                            <li>Track cross-references</li>
+                            <li>Context-aware boundaries</li>
+                        </ul>
+                        <pre><code>aiuml goto UserService
+aiuml nav @*  # Show all classes
+aiuml nav /authentication  # Search</code></pre>
+                    </div>
+
+                    <div class="capability-card">
+                        <h4>SQL Queries</h4>
+                        <p>Query your codebase like a database:</p>
+                        <ul>
+                            <li>Find patterns across files</li>
+                            <li>Analyze complexity metrics</li>
+                            <li>Identify architectural issues</li>
+                            <li>Custom analysis queries</li>
+                        </ul>
+                        <pre><code>aiuml query "SELECT * FROM methods
+WHERE complexity > 10"</code></pre>
+                    </div>
+
+                    <div class="capability-card">
+                        <h4>Progressive Understanding</h4>
+                        <p>Builds knowledge as you explore:</p>
+                        <ul>
+                            <li>No upfront indexing required</li>
+                            <li>Caches results intelligently</li>
+                            <li>Updates incrementally</li>
+                            <li>Lightweight footprint</li>
+                        </ul>
+                        <pre><code>aiuml status  # Check cache
+aiuml model   # Build/refresh</code></pre>
+                    </div>
+
+                    <div class="capability-card">
+                        <h4>Project Awareness</h4>
+                        <p>Intelligent project management:</p>
+                        <ul>
+                            <li>Auto-detects project boundaries</li>
+                            <li>Pauses outside project scope</li>
+                            <li>Resumes when returning</li>
+                            <li>Graceful degradation</li>
+                        </ul>
+                        <pre><code>aiuml init    # Initialize
+aiuml status  # Check state</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="future-vision">
+                <h3>🔮 Exciting Possibilities</h3>
+                <p>Where this experimental approach might lead:</p>
+
+                <div class="possibility-grid">
+                    <div class="possibility">
+                        <h4>AI Pair Programming</h4>
+                        <p>LLMs that truly understand your architecture, suggesting changes that fit naturally with existing patterns</p>
+                    </div>
+                    <div class="possibility">
+                        <h4>Automated Refactoring</h4>
+                        <p>Identify and fix architectural issues automatically using SQL queries and pattern matching</p>
+                    </div>
+                    <div class="possibility">
+                        <h4>Cross-Language Analysis</h4>
+                        <p>Unified understanding across polyglot codebases through standardized notation</p>
+                    </div>
+                    <div class="possibility">
+                        <h4>Real-time Architecture</h4>
+                        <p>Live architectural views that update as code changes, maintaining consistency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
     <section id="features" class="section features">
         <div class="container">
-            <h2>Core Capabilities</h2>
+            <h2>Working Features</h2>
+            <p class="section-intro">What's available today in AIUML Developer</p>
+
             <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Extraction Presets</h3>
-                    <ul>
-                        <li><strong>Minimal:</strong> Essential structure only</li>
-                        <li><strong>Architecture:</strong> Design and relationships (recommended)</li>
-                        <li><strong>API:</strong> Public interfaces with documentation</li>
-                        <li><strong>Full:</strong> Complete extraction for deep analysis</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <h3>Compression Options</h3>
-                    <p>Reduce context usage while preserving architectural information</p>
-                    <ul>
-                        <li>May reduce tokens through structural compression</li>
-                        <li>Multiple levels from human-readable to highly compressed</li>
-                    </ul>
-                </div>
                 <div class="feature-card">
                     <h3>Language Support</h3>
                     <ul>
-                        <li><strong>Python:</strong> Fully tested with complete AST parsing</li>
-                        <li><strong>Experimental:</strong> JavaScript, TypeScript, Java, C++, C#, PHP</li>
+                        <li><strong>Python:</strong> Full AST-based extraction</li>
+                        <li><strong>Experimental:</strong> JS, TS, Java, C++, C#, Go</li>
                     </ul>
-                    <p class="note">Note: Non-Python support is experimental and improving</p>
+                    <p class="note">Python is production-ready, others improving</p>
                 </div>
+
                 <div class="feature-card">
-                    <h3>Scale Handling</h3>
+                    <h3>Navigation Modes</h3>
                     <ul>
-                        <li>Fast extraction for large codebases</li>
-                        <li>Progressive scanning for very large projects</li>
-                        <li>Database-backed caching for performance</li>
+                        <li>Filesystem navigation</li>
+                        <li>AIUML structure (<code>@</code> prefix)</li>
+                        <li>SQL queries (<code>#</code> prefix)</li>
+                        <li>Full-text search (<code>/</code> prefix)</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Use Cases -->
-    <section class="section use-cases">
-        <div class="container">
-            <h2>Where AIUML Might Help</h2>
-            <div class="use-cases-grid">
-                <div class="use-case">
-                    <h3>Understanding Inherited Code</h3>
-                    <p>Extract architectural overview of unfamiliar codebases to potentially speed up comprehension</p>
-                </div>
-                <div class="use-case">
-                    <h3>Adding Features</h3>
-                    <p>Provide LLMs with system context that may help them suggest changes that fit existing patterns</p>
-                </div>
-                <div class="use-case">
-                    <h3>Code Reviews</h3>
-                    <p>Share architecture with LLMs to potentially identify inconsistencies or architectural violations</p>
-                </div>
-                <div class="use-case">
-                    <h3>Debugging Complex Issues</h3>
-                    <p>Architectural awareness might help LLMs identify related components and potential failure points</p>
-                </div>
-            </div>
-            <p class="disclaimer">Remember: These are potential use cases. Effectiveness depends on your specific needs and context.</p>
-        </div>
-    </section>
-
-    <!-- Integration -->
-    <section class="section integration">
-        <div class="container">
-            <h2>Integration Options</h2>
-            <div class="integration-options">
-                <div class="integration-card">
-                    <h3>Command Line Interface</h3>
-                    <p>Traditional CLI tool for scripts, CI/CD, and automation</p>
-                    <pre><code>pip install -e .
-aiuml extract /project --compress high
-
-# Integrate with existing tools
-aiuml extract . | your-tool
-python script.py $(aiuml extract . --format json)</code></pre>
-                </div>
-                <div class="integration-card">
-                    <h3>MCP Server Integration</h3>
-                    <p>Direct integration with Claude Desktop and MCP-compatible assistants</p>
-                    <pre><code>{
-  "mcpServers": {
-    "aiuml": {
-      "command": "python",
-      "args": ["/path/to/aiuml/src/aiuml/mcp/server.py"]
-    }
-  }
-}</code></pre>
-                </div>
-            </div>
-            <div class="integration-details">
-                <h3>Tools for Every Workflow</h3>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <h4>CLI Tools</h4>
-                        <ul>
-                            <li><code>extract</code> - Extract architectural models</li>
-                            <li><code>extract-fast</code> - Fast extraction for large codebases</li>
-                            <li><code>scan</code> - Progressive extraction with resume</li>
-                            <li><code>query</code> - Run custom SQL queries on project database</li>
-                            <li><code>search</code> - Search classes, methods, and patterns</li>
-                            <li><code>compress</code> - Optimize token usage</li>
-                            <li><code>convert</code> - Transform to other formats</li>
-                            <li><code>diagnose</code> - Find architectural issues</li>
-                        </ul>
-                    </div>
-                    <div class="tool-item">
-                        <h4>MCP Tools</h4>
-                        <ul>
-                            <li><code>aiuml_extract</code> - Real-time extraction</li>
-                            <li><code>aiuml_scan_init</code> - Start progressive scan</li>
-                            <li><code>aiuml_query</code> - Execute SQL queries on database</li>
-                            <li><code>aiuml_navigate</code> - Explore components</li>
-                            <li><code>aiuml_search</code> - Find patterns and code</li>
-                            <li><code>aiuml_transform</code> - Convert formats</li>
-                            <li><code>aiuml_diagnose</code> - Analyze code quality</li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="note">Both CLI and MCP tools access identical functionality through the InterfaceRouter architecture. Use CLI for automation and scripts, MCP for interactive AI sessions.</p>
-
-                <div class="sql-feature">
-                    <h3>Powerful SQL Query Capability</h3>
-                    <p>AIUML stores your project structure in a SQLite database, enabling powerful custom queries:</p>
-                    <pre><code># Find all classes with more than 500 lines
-aiuml query "SELECT name, file_path, (line_end - line_start) as lines
-             FROM classes WHERE (line_end - line_start) > 500"
-
-# Find methods that might need refactoring
-aiuml query "SELECT c.name, m.name, m.complexity
-             FROM methods m JOIN classes c ON m.class_id = c.id
-             WHERE m.complexity > 10"
-
-# Analyze language distribution
-aiuml query "SELECT language, COUNT(*) as count
-             FROM classes GROUP BY language"</code></pre>
-                    <p>Query your codebase like a database - find patterns, identify issues, and gain insights that would be difficult to discover otherwise.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Philosophy -->
-    <section class="section philosophy">
-        <div class="container">
-            <h2>An Experimental Approach</h2>
-            <p>AIUML is based on a hypothesis: that providing LLMs with structured architectural knowledge might improve their effectiveness when working with code. This is an experiment, not a proven solution.</p>
-
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <h3>What We're Exploring</h3>
+                <div class="feature-card">
+                    <h3>Extraction Levels</h3>
                     <ul>
-                        <li>Whether pre-computed architecture helps more than exploration</li>
-                        <li>If structured formats improve LLM code comprehension</li>
-                        <li>How compression affects understanding vs token efficiency</li>
-                        <li>Which extraction settings work best for different scenarios</li>
+                        <li><strong>Minimal:</strong> Classes only</li>
+                        <li><strong>API:</strong> Public interfaces</li>
+                        <li><strong>Architecture:</strong> Full structure</li>
+                        <li><strong>Full:</strong> Complete details</li>
                     </ul>
                 </div>
-                <div class="philosophy-card">
-                    <h3>What We Don't Claim</h3>
-                    <ul>
-                        <li>Specific performance improvements</li>
-                        <li>Guaranteed error reduction</li>
-                        <li>Universal effectiveness</li>
-                        <li>That this approach works for all codebases or LLMs</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Open Source -->
-    <section class="section open-source">
-        <div class="container">
-            <h2>Free and Open Forever</h2>
-            <div class="open-source-features">
-                <div class="os-feature">
-                    <h3>MIT License</h3>
-                    <p>Use freely in any project</p>
-                </div>
-                <div class="os-feature">
-                    <h3>Local Processing</h3>
-                    <p>AIUML runs entirely on your machine - though you choose what to share with LLMs</p>
-                </div>
-                <div class="os-feature">
-                    <h3>No Data Collection</h3>
-                    <p>We don't collect or store any user data</p>
-                </div>
-                <div class="os-feature">
-                    <h3>Community Driven</h3>
-                    <p>Your feedback shapes development</p>
-                </div>
-            </div>
-            <div class="contribute">
-                <h3>Contributing</h3>
-                <p>AIUML is an open experiment. We welcome:</p>
-                <ul>
-                    <li>Testing with different languages and LLMs</li>
-                    <li>Bug reports and feature suggestions</li>
-                    <li>Code contributions and improvements</li>
-                    <li>Sharing experiences and use cases</li>
-                </ul>
-                <div class="contribute-buttons">
-                    <a href="https://github.com/aiuml/aiuml" class="btn btn-secondary">View on GitHub</a>
-                    <a href="https://github.com/aiuml/aiuml/issues" class="btn btn-secondary">Report Issues</a>
+                <div class="feature-card">
+                    <h3>Integration Options</h3>
+                    <ul>
+                        <li>CLI for scripts & automation</li>
+                        <li>MCP server for AI assistants</li>
+                        <li>Direct Claude Desktop support</li>
+                        <li>SQLite database backend</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -384,70 +354,119 @@ aiuml query "SELECT language, COUNT(*) as count
     <!-- Getting Started -->
     <section id="getting-started" class="section getting-started">
         <div class="container">
-            <h2>Getting Started</h2>
-            <div class="quickstart">
-                <h3>Quick Start</h3>
-                <pre><code># Install
-git clone https://github.com/aiuml/aiuml.git
+            <h2>Get Started</h2>
+
+            <div class="install-options">
+                <div class="install-card">
+                    <h3>Quick Start</h3>
+                    <pre><code># Clone and setup
+git clone https://github.com/aiuml/developer.git
 cd aiuml
 pip install -e .
 
-# Extract your project
-aiuml extract /your/project --preset architecture --compress high
+# Initialize project
+aiuml init
+aiuml status
 
-# Use with your LLM
-# Copy the output and provide it at conversation start</code></pre>
-            </div>
-
-            <div class="requirements">
-                <h3>Requirements</h3>
-                <ul>
-                    <li>Python 3.8 or higher</li>
-                    <li>No external dependencies</li>
-                    <li>Works on Windows, macOS, Linux</li>
-                </ul>
-            </div>
-
-            <div class="learn-more">
-                <h3>Learn More</h3>
-                <div class="docs-links">
-                    <a href="https://github.com/aiuml/aiuml/blob/main/docs/GETTING_STARTED.md">Installation Guide</a>
-                    <a href="https://github.com/aiuml/aiuml/blob/main/docs/CLI_REFERENCE.md">CLI Reference</a>
-                    <a href="https://github.com/aiuml/aiuml/blob/main/docs/MCP_SETUP.md">MCP Setup</a>
-                    <a href="https://github.com/aiuml/aiuml/blob/main/docs/USE_CASES.md">Use Cases</a>
+# Build model and explore
+aiuml model
+aiuml nav @*</code></pre>
                 </div>
+
+                <div class="install-card">
+                    <h3>MCP Integration</h3>
+                    <pre><code># Add to Claude Desktop config
+{
+  "mcpServers": {
+    "aiuml": {
+      "command": "python",
+      "args": ["/path/to/start_mcp.py"]
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-workflow">
+                <h3>Example Workflow</h3>
+                <pre><code># Navigate to a class
+aiuml goto UserService
+
+# Find all async methods
+aiuml query "SELECT * FROM methods WHERE is_async = 1"
+
+# Search for authentication code
+aiuml nav /authentication
+
+# Check project status
+aiuml status</code></pre>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section faq">
+    <!-- Philosophy -->
+    <section class="section philosophy">
         <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>Is AIUML right for my project?</h3>
-                    <p>AIUML might be worth trying if you work with LLMs for development, have medium to large codebases, want to experiment with improving AI assistance, and are comfortable with experimental tools.</p>
+            <h2>Our Approach</h2>
+
+            <div class="philosophy-content">
+                <p>AIUML Developer is an experiment in improving how AI understands code. We believe that providing structured architectural context might help LLMs work more effectively with codebases.</p>
+
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3>What We're Testing</h3>
+                        <ul>
+                            <li>Can pre-computed architecture improve AI code understanding?</li>
+                            <li>Does a standardized notation help LLMs reason about code?</li>
+                            <li>Can SQL queries provide better code insights?</li>
+                            <li>How does progressive caching affect performance?</li>
+                        </ul>
+                    </div>
+
+                    <div class="philosophy-card">
+                        <h3>What We've Learned</h3>
+                        <ul>
+                            <li>Structured context often helps LLMs navigate complex codebases</li>
+                            <li>SQL queries enable powerful pattern discovery</li>
+                            <li>Progressive understanding reduces overhead</li>
+                            <li>Project boundaries matter for context management</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>How much does it cost?</h3>
-                    <p>Nothing. AIUML is free open-source software (MIT license) and always will be.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Does AIUML send my code anywhere?</h3>
-                    <p>No. AIUML itself runs entirely on your machine and never transmits data. However, when you share the extracted model with an LLM, you're choosing to send that architectural information to your LLM provider.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What languages are supported?</h3>
-                    <p>Python is fully tested. JavaScript, TypeScript, Java, C++, C#, and PHP have experimental support that's continuously improving.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Will this definitely improve my LLM's performance?</h3>
-                    <p>No guarantees. AIUML is an experiment. Results vary based on your codebase, the LLM you're using, and your specific use case.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Can I contribute?</h3>
-                    <p>Yes! We welcome contributions, feedback, and testing. Check our GitHub repository for contribution guidelines.</p>
+
+                <p class="disclaimer">This is experimental software exploring new ideas. Results vary based on codebase complexity and specific use cases. We're learning and improving with community feedback.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="section community">
+        <div class="container">
+            <h2>Open Source & Community Driven</h2>
+
+            <div class="community-content">
+                <p>AIUML is completely open source under the MIT license. Both the notation specification and the Developer implementation are freely available.</p>
+
+                <div class="community-grid">
+                    <div class="community-card">
+                        <h3>Contribute</h3>
+                        <ul>
+                            <li>Add language extractors</li>
+                            <li>Improve the notation spec</li>
+                            <li>Build new navigation features</li>
+                            <li>Share your use cases</li>
+                        </ul>
+                    </div>
+
+                    <div class="community-card">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="https://github.com/aiuml/developer">AIUML Developer Repo</a></li>
+                            <li><a href="https://github.com/aiuml">AIUML Organization</a></li>
+                            <li><a href="https://github.com/aiuml/developer/tree/main/docs">Documentation</a></li>
+                            <li><a href="https://github.com/aiuml/developer/issues">Report Issues</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -457,58 +476,108 @@ aiuml extract /your/project --preset architecture --compress high
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>AIUML</h3>
-                    <p>An experimental exploration in AI-assisted development</p>
-                    <div class="footer-badges">
-                        <span class="badge">Alpha Preview</span>
-                        <span class="badge">v0.1.0-alpha</span>
-                        <span class="badge">MIT License</span>
-                    </div>
+                <div class="footer-section">
+                    <h4>AIUML Project</h4>
+                    <p>Architecture Intelligence for AI-Assisted Development</p>
+                    <p class="version">Notation v0.1.0b | Developer v0.1.0-alpha</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Resources</h4>
+                <div class="footer-section">
+                    <h4>Links</h4>
                     <ul>
-                        <li><a href="https://github.com/aiuml/aiuml">GitHub</a></li>
-                        <li><a href="https://github.com/aiuml/aiuml/tree/main/docs">Documentation</a></li>
-                        <li><a href="https://github.com/aiuml/aiuml/issues">Issues</a></li>
-                        <li><a href="https://github.com/aiuml/aiuml/discussions">Discussions</a></li>
+                        <li><a href="https://github.com/aiuml/developer">Developer Implementation</a></li>
+                        <li><a href="https://github.com/aiuml">AIUML Organization</a></li>
+                        <li><a href="https://github.com/aiuml/developer/tree/main/docs/specifications">Notation Spec</a></li>
                     </ul>
                 </div>
-                <div class="footer-about">
-                    <h4>About</h4>
-                    <p>AIUML is an open-source experiment exploring whether structured architectural context can improve AI-assisted development. No specific benefits are guaranteed - results vary based on context.</p>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/aiuml/developer/issues">Issues & Feedback</a></li>
+                        <li><a href="https://github.com/aiuml/developer/discussions">Discussions</a></li>
+                        <li>MIT License</li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Social Share Section (Subtle Footer Version) -->
-            <div class="footer-share">
-                <p class="footer-share-text">Share AIUML:</p>
-                <div class="footer-share-buttons">
-                    <a href="https://twitter.com/intent/tweet?text=Just%20discovered%20AIUML%20-%20Query%20your%20codebase%20like%20a%20database%20for%20AI!%20%F0%9F%9A%80%0A%0AExtract%20architectural%20context%2C%20run%20SQL%20queries%20on%20your%20code%2C%20help%20LLMs%20understand%20your%20project%2010x%20better.%0A%0AOpen%20source%20%26%20free%20forever%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Faiuml.org&hashtags=AI,OpenSource,DevTools" target="_blank" class="footer-share-btn" aria-label="Share on Twitter">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Faiuml.org&title=AIUML%20-%20Query%20Your%20Codebase%20Like%20a%20Database&summary=Extract%20your%20codebase%20architecture%20into%20SQL-queryable%20format.%20Help%20LLMs%20understand%20your%20code%2010x%20better.%20Open%20source%20and%20free%20forever." target="_blank" class="footer-share-btn" aria-label="Share on LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    <a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Faiuml.org&t=AIUML%20-%20Query%20Your%20Codebase%20Like%20a%20Database%20for%20AI" target="_blank" class="footer-share-btn" aria-label="Share on Hacker News">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 13.7L10 20h-1.5l2.8-6.3L8.5 8H10l1.8 3.7L13.5 8H15l-2.7 5.7L15 20h-1.5l-2.7-6.3z"/></svg>
-                    </a>
-                    <a href="https://reddit.com/submit?url=https%3A%2F%2Faiuml.org&title=AIUML%20-%20Query%20Your%20Codebase%20Like%20a%20Database%20for%20AI" target="_blank" class="footer-share-btn" aria-label="Share on Reddit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
-                    </a>
-                    <a href="https://github.com/aiuml/aiuml" target="_blank" class="footer-share-btn" aria-label="Star on GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                </div>
-            </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2025 AIUML Project. Released under MIT License.</p>
+                <p>&copy; 2025 AIUML Project. An experimental open-source initiative.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Inline typewriter as fallback -->
+    <script>
+        (function() {
+            console.log('Inline typewriter script running');
+
+            function runTypewriter() {
+                const header = document.getElementById('typewriter-header');
+                if (!header) {
+                    console.log('No header found');
+                    return;
+                }
+
+                const text = header.getAttribute('data-text');
+                if (!text) {
+                    console.log('No data-text');
+                    return;
+                }
+
+                // Check if we should run typewriter
+                let shouldType = true;
+                try {
+                    // Only type once per session (not per page load)
+                    if (sessionStorage.getItem('aiuml-typed-v2')) {
+                        shouldType = false;
+                        console.log('Already typed this session');
+                    }
+                } catch(e) {
+                    console.log('Session storage not available');
+                }
+
+                // Check for reset parameter
+                if (window.location.search.includes('reset=true')) {
+                    shouldType = true;
+                    try {
+                        sessionStorage.removeItem('aiuml-typed-v2');
+                    } catch(e) {}
+                }
+
+                if (!shouldType) {
+                    return;
+                }
+
+                console.log('Typing:', text);
+                header.textContent = ''; // Clear the fallback text
+                let index = 0;
+
+                function type() {
+                    if (index < text.length) {
+                        header.textContent = text.slice(0, index + 1);
+                        index++;
+                        setTimeout(type, 50);
+                    } else {
+                        // Mark as typed for this session
+                        try {
+                            sessionStorage.setItem('aiuml-typed-v2', 'true');
+                            console.log('Typing complete, marked in session');
+                        } catch(e) {
+                            console.log('Could not save to session storage');
+                        }
+                    }
+                }
+
+                setTimeout(type, 300);
+            }
+
+            // Try multiple times to ensure it runs
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', runTypewriter);
+            } else {
+                runTypewriter();
+            }
+        })();
+    </script>
 </body>
 </html>

@@ -1,0 +1,642 @@
+/* MODERN TERMINAL THEME - AIUML */
+
+/* CSS Variables Override */
+body.theme-terminal {
+    /* Color Palette */
+    --primary-color: #61afef;  /* Soft blue */
+    --primary-hover: #528bbd;
+    --secondary-color: #98c379;  /* Soft green */
+    --dark-bg: #1e2127;  /* Dark gray background */
+    --light-bg: #282c34;  /* Slightly lighter gray */
+    --white: #1e2127;
+    --text-primary: #abb2bf;  /* Light gray text */
+    --text-secondary: #e5e5e5;
+    --text-light: #5c6370;  /* Muted gray */
+    --border-color: #3e4451;  /* Subtle borders */
+    --code-bg: #282c34;
+    --warning-bg: #2c323c;
+    --warning-border: #e06c75;
+    --warning-text: #e06c75;
+
+    /* Typography */
+    --font-sans: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+
+    /* Layout */
+    background: #1e2127;
+    color: #abb2bf;
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: hidden;
+}
+
+/* Subtle gradient background */
+body.theme-terminal::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, #282c34 0%, #1e2127 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Force monospace everywhere */
+body.theme-terminal * {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Navigation Bar */
+body.theme-terminal .navbar {
+    background: #21252b;
+    border-bottom: 1px solid #3e4451;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body.theme-terminal .nav-brand {
+    color: #61afef;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body.theme-terminal .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+body.theme-terminal .nav-menu a {
+    color: #abb2bf;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+body.theme-terminal .nav-menu a:hover {
+    color: #61afef;
+}
+
+body.theme-terminal .btn-github {
+    background: #282c34;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #3e4451;
+    color: #61afef !important;
+    transition: all 0.3s;
+}
+
+body.theme-terminal .btn-github:hover {
+    background: #61afef;
+    color: #1e2127 !important;
+    border-color: #61afef;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+body.theme-terminal .hero {
+    background: transparent;
+    position: relative;
+    padding: 60px 20px;
+    text-align: left;  /* Left align all hero content */
+}
+
+body.theme-terminal h1 {
+    color: #e5e5e5;
+    position: relative;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    min-height: 1.2em;
+    text-align: left;  /* Ensure left alignment */
+}
+
+body.theme-terminal h1::before {
+    content: ">";
+    color: #98c379;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+body.theme-terminal h1::after {
+    content: "_";
+    color: #98c379;
+    animation: blink 1s infinite;
+    font-weight: normal;
+    margin-left: 2px;
+}
+
+/* Headings */
+body.theme-terminal h2 {
+    color: #61afef;
+    border-bottom: 1px solid #3e4451;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+body.theme-terminal h3 {
+    color: #e06c75;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+body.theme-terminal h4 {
+    color: #c678dd;
+    font-size: 1.1rem;
+}
+
+/* Text Elements */
+body.theme-terminal .subtitle {
+    color: #5c6370;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+body.theme-terminal .hero-buttons {
+    text-align: left;
+    margin-top: 30px;
+}
+
+body.theme-terminal p {
+    line-height: 1.7;
+    color: #abb2bf;
+}
+
+body.theme-terminal strong {
+    color: #e06c75;
+}
+
+/* Buttons */
+body.theme-terminal .btn {
+    border: 1px solid #3e4451;
+    background: #282c34;
+    color: #61afef;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+body.theme-terminal .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(97, 175, 239, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+body.theme-terminal .btn:hover {
+    background: #2c323c;
+    border-color: #61afef;
+    color: #e5e5e5;
+    box-shadow: 0 0 15px rgba(97, 175, 239, 0.3);
+}
+
+body.theme-terminal .btn:hover::before {
+    left: 100%;
+}
+
+body.theme-terminal .btn-primary {
+    background: #61afef;
+    color: #1e2127;
+    border-color: #61afef;
+}
+
+body.theme-terminal .btn-primary:hover {
+    background: #528bbd;
+    border-color: #528bbd;
+}
+
+body.theme-terminal .btn-secondary {
+    background: transparent;
+    border: 1px solid #61afef;
+    color: #61afef;
+}
+
+/* Code Blocks */
+body.theme-terminal pre {
+    background: #000000;
+    border: 1px solid #3e4451;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+body.theme-terminal code {
+    color: #e06c75;
+    background: #1a1a1a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+body.theme-terminal pre code {
+    color: #abb2bf;  /* Soft gray matching body text */
+    background: transparent;
+    padding: 0;
+}
+
+/* Terminal prompts in code blocks */
+body.theme-terminal pre code::before {
+    content: "";  /* No automatic prompt - will be in content */
+}
+
+/* Fix for wrapped code */
+body.theme-terminal pre.wrap-code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Sections */
+body.theme-terminal .section {
+    background: transparent;
+    border-top: 1px solid #3e4451;
+    padding: 60px 0;
+}
+
+body.theme-terminal .section:first-of-type {
+    border-top: none;
+}
+
+/* Cards */
+body.theme-terminal .component-card,
+body.theme-terminal .feature-card,
+body.theme-terminal .capability-card,
+body.theme-terminal .notation-card,
+body.theme-terminal .philosophy-card,
+body.theme-terminal .community-card,
+body.theme-terminal .possibility {
+    background: #282c34;
+    border: 1px solid #3e4451;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+body.theme-terminal .component-card:hover,
+body.theme-terminal .feature-card:hover,
+body.theme-terminal .capability-card:hover,
+body.theme-terminal .notation-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border-color: #61afef;
+}
+
+/* Grid Layouts - Fix overflow */
+body.theme-terminal .components-grid,
+body.theme-terminal .notation-features,
+body.theme-terminal .capability-grid,
+body.theme-terminal .features-grid,
+body.theme-terminal .philosophy-grid,
+body.theme-terminal .community-grid,
+body.theme-terminal .possibility-grid {
+    display: grid;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Responsive grids */
+@media (min-width: 768px) {
+    body.theme-terminal .components-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+    }
+
+    /* Make component cards equal height and stretch example boxes */
+    body.theme-terminal .component-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body.theme-terminal .component-card .component-subtitle {
+        margin-bottom: 10px;
+    }
+
+    body.theme-terminal .component-card > p,
+    body.theme-terminal .component-card > ul {
+        flex-grow: 0;  /* Don't grow */
+    }
+
+    body.theme-terminal .component-card .example-box {
+        margin-top: auto;  /* Push to bottom */
+        flex-grow: 1;  /* Take remaining space */
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.theme-terminal .component-card .example-box pre {
+        flex-grow: 1;  /* Make pre element fill available space */
+        min-height: 120px;  /* Ensure minimum height */
+    }
+
+    body.theme-terminal .notation-features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    body.theme-terminal .capability-grid,
+    body.theme-terminal .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+    }
+
+    /* Apply same flexbox layout to capability cards */
+    body.theme-terminal .capability-card,
+    body.theme-terminal .feature-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body.theme-terminal .capability-card > p,
+    body.theme-terminal .capability-card > ul,
+    body.theme-terminal .feature-card > p,
+    body.theme-terminal .feature-card > ul {
+        flex-grow: 0;
+    }
+
+    body.theme-terminal .capability-card pre,
+    body.theme-terminal .feature-card pre {
+        margin-top: auto;
+        flex-grow: 1;
+        min-height: 80px;
+    }
+
+    body.theme-terminal .possibility-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+    }
+
+    /* Philosophy and community grids */
+    body.theme-terminal .philosophy-grid,
+    body.theme-terminal .community-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+    }
+
+    body.theme-terminal .philosophy-card,
+    body.theme-terminal .community-card,
+    body.theme-terminal .possibility {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    body.theme-terminal .components-grid,
+    body.theme-terminal .notation-features,
+    body.theme-terminal .capability-grid,
+    body.theme-terminal .features-grid,
+    body.theme-terminal .possibility-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lists */
+body.theme-terminal ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body.theme-terminal ul li {
+    position: relative;
+    padding-left: 20px;
+    margin: 8px 0;
+}
+
+body.theme-terminal ul li::before {
+    content: "▸";
+    color: #98c379;
+    position: absolute;
+    left: 0;
+}
+
+/* Badges */
+body.theme-terminal .badge {
+    background: #282c34;
+    color: #98c379;
+    border: 1px solid #3e4451;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin: 0 4px;
+}
+
+body.theme-terminal .status-badge {
+    margin: 20px 0;
+    text-align: left;
+}
+
+/* Warning Box */
+body.theme-terminal .warning-box {
+    background: #2c323c;
+    border: 1px solid #e06c75;
+    color: #e5e5e5;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* Examples */
+body.theme-terminal .example-box {
+    background: transparent;  /* Remove container background */
+    border: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+body.theme-terminal .example-box pre {
+    margin: 0;  /* Remove double margin */
+}
+
+body.theme-terminal .notation-example,
+body.theme-terminal .example-output {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+body.theme-terminal .example-version {
+    margin: 20px 0;
+}
+
+/* Footer */
+body.theme-terminal .footer {
+    background: #21252b;
+    border-top: 1px solid #3e4451;
+    color: #5c6370;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+body.theme-terminal .footer a {
+    color: #61afef;
+    text-decoration: none;
+}
+
+body.theme-terminal .footer a:hover {
+    color: #98c379;
+}
+
+body.theme-terminal .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+body.theme-terminal .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #3e4451;
+    color: #5c6370;
+}
+
+/* Container width fix */
+body.theme-terminal .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Installation blocks */
+body.theme-terminal .install-options {
+    display: grid;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+@media (min-width: 768px) {
+    body.theme-terminal .install-options {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+    }
+
+    body.theme-terminal .install-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body.theme-terminal .install-card h3 {
+        flex-grow: 0;
+    }
+
+    body.theme-terminal .install-card pre {
+        margin-top: auto;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+}
+
+body.theme-terminal .install-card {
+    background: #282c34;
+    border: 1px solid #3e4451;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+/* Terminal cursor animation */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body.theme-terminal h1 {
+        font-size: 1.8rem;
+    }
+
+    body.theme-terminal h2 {
+        font-size: 1.5rem;
+    }
+
+    body.theme-terminal .nav-menu {
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
+    body.theme-terminal .hero {
+        padding: 40px 20px;
+    }
+
+    body.theme-terminal .section {
+        padding: 40px 0;
+    }
+}
+
+/* Fix overflow issues */
+body.theme-terminal {
+    overflow-x: hidden;
+}
+
+body.theme-terminal * {
+    max-width: 100%;
+}
+
+/* Ensure images don't overflow */
+body.theme-terminal img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Table responsiveness */
+body.theme-terminal table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Horizontal scrolling for wide content */
+body.theme-terminal .example-output,
+body.theme-terminal pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Section intro text */
+body.theme-terminal .section-intro {
+    color: #5c6370;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Disclaimer text */
+body.theme-terminal .disclaimer {
+    color: #5c6370;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 10px;
+    background: #21252b;
+    border-left: 3px solid #e06c75;
+    border-radius: 4px;
+}

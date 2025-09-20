@@ -14,17 +14,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add navbar background on scroll
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
+// Terminal theme doesn't need navbar scroll changes
+// Navbar styles are handled by CSS
 
 // Highlight active nav item based on scroll position
 const sections = document.querySelectorAll('section[id]');
@@ -148,13 +139,90 @@ function createMobileMenu() {
     });
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial navbar state
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+// Typewriter effect for header
+function typewriterEffect() {
+    const header = document.getElementById('typewriter-header');
+    if (!header) {
+        console.log('Header element not found');
+        return;
     }
+
+    const text = header.getAttribute('data-text');
+    if (!text) {
+        console.log('No data-text attribute');
+        return;
+    }
+
+    // For local files, use sessionStorage or just always show effect
+    let hasSeenBefore = false;
+    try {
+        // Try to use sessionStorage (works better with file://)
+        hasSeenBefore = sessionStorage.getItem('aiuml-header-seen');
+    } catch(e) {
+        // If storage fails, just show the effect
+        console.log('Storage not available, showing typewriter');
+    }
+
+    // Check for reset parameter in URL (for testing)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('reset') === 'true') {
+        try {
+            sessionStorage.removeItem('aiuml-header-seen');
+        } catch(e) {}
+        hasSeenBefore = false;
+    }
+
+    // Only do typewriter on first visit
+    if (hasSeenBefore && urlParams.get('reset') !== 'true') {
+        header.textContent = text;
+        return;
+    }
+
+    console.log('Starting typewriter effect for: ' + text);
+    let index = 0;
+    header.textContent = '';
+    header.style.minHeight = '3em'; // Fixed height to prevent shift
+
+    function type() {
+        if (index < text.length) {
+            header.textContent = text.slice(0, index + 1);
+            index++;
+            setTimeout(type, 50); // Adjust speed here (ms per character)
+        } else {
+            // Mark as seen
+            try {
+                sessionStorage.setItem('aiuml-header-seen', 'true');
+            } catch(e) {}
+            console.log('Typewriter complete');
+        }
+    }
+
+    // Start typing immediately for local files
+    console.log('Beginning to type...');
+    type();
+}
+
+// Test if script is loading
+console.log('Script.js loaded!');
+
+// Initialize on page load
+window.addEventListener('load', () => {
+    console.log('Window loaded event fired');
+    // Run typewriter effect after everything loads
+    typewriterEffect();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded event fired');
+
+    // Try running typewriter here too as backup
+    setTimeout(() => {
+        const header = document.getElementById('typewriter-header');
+        if (header && !header.textContent) {
+            console.log('Running typewriter from DOMContentLoaded');
+            typewriterEffect();
+        }
+    }, 100);
 
     // Add tooltip to code blocks
     document.querySelectorAll('pre').forEach(pre => {
