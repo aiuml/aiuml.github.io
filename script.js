@@ -172,11 +172,12 @@ function typewriterEffect() {
         hasSeenBefore = false;
     }
 
-    // Only do typewriter on first visit
-    if (hasSeenBefore && urlParams.get('reset') !== 'true') {
-        header.textContent = text;
-        return;
-    }
+    // Always show typewriter on refresh (sessionStorage clears on new session)
+    // Comment out these lines to always show typewriter effect
+    // if (hasSeenBefore && urlParams.get('reset') !== 'true') {
+    //     header.textContent = text;
+    //     return;
+    // }
 
     console.log('Starting typewriter effect for: ' + text);
     let index = 0;
@@ -189,10 +190,10 @@ function typewriterEffect() {
             index++;
             setTimeout(type, 50); // Adjust speed here (ms per character)
         } else {
-            // Mark as seen
-            try {
-                sessionStorage.setItem('aiuml-header-seen', 'true');
-            } catch(e) {}
+            // Don't mark as seen anymore - show effect every refresh
+            // try {
+            //     sessionStorage.setItem('aiuml-header-seen', 'true');
+            // } catch(e) {}
             console.log('Typewriter complete');
         }
     }
