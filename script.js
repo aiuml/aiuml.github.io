@@ -269,7 +269,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Typewriter effect for hero subtitle (optional, subtle)
-function typewriterEffect(element, text, speed = 30) {
+function typewriterEffectSubtitle(element, text, speed = 30) {
     let i = 0;
     element.textContent = '';
     element.style.opacity = '1';
@@ -291,6 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subtitle) {
         const text = subtitle.textContent;
         // Uncomment the next line to enable typewriter effect
-        // typewriterEffect(subtitle, text);
+        // typewriterEffectSubtitle(subtitle, text);
     }
 });
