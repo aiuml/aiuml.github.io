@@ -208,24 +208,20 @@ function typewriterEffect() {
 // Test if script is loading
 console.log('Script.js loaded!');
 
-// Initialize on page load
-window.addEventListener('load', () => {
-    console.log('Window loaded event fired');
-    // Run typewriter effect after everything loads
-    typewriterEffect();
-});
+// Initialize on page load - only run once
+let typewriterStarted = false;
+
+function startTypewriterOnce() {
+    if (!typewriterStarted) {
+        typewriterStarted = true;
+        console.log('Starting typewriter effect');
+        typewriterEffect();
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded event fired');
-
-    // Try running typewriter here too as backup
-    setTimeout(() => {
-        const header = document.getElementById('typewriter-header');
-        if (header && !header.textContent) {
-            console.log('Running typewriter from DOMContentLoaded');
-            typewriterEffect();
-        }
-    }, 100);
+    startTypewriterOnce();
 
     // Add tooltip to code blocks
     document.querySelectorAll('pre').forEach(pre => {
