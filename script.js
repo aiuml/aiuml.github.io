@@ -182,13 +182,15 @@ function typewriterEffect() {
     console.log('Starting typewriter effect for: ' + text);
     let index = 0;
     header.textContent = '';
-    header.style.minHeight = '3em'; // Fixed height to prevent shift
+    header.style.opacity = '1'; // Fade in
+    header.style.transition = 'opacity 0.3s'; // Smooth transition
+    header.style.minHeight = '1.2em'; // Match the HTML min-height
 
     function type() {
         if (index < text.length) {
             header.textContent = text.slice(0, index + 1);
             index++;
-            setTimeout(type, 50); // Adjust speed here (ms per character)
+            setTimeout(type, 35); // Adjust speed here (ms per character)
         } else {
             // Don't mark as seen anymore - show effect every refresh
             // try {
